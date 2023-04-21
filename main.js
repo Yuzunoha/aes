@@ -15,8 +15,8 @@ const demo = () => {
 };
 
 btnEncode.addEventListener('click', () => {
+  const passphrase = inputPassPhrase.value;
   const plaintextInput = inputTextarea.value;
-  const passphrase = inputTextarea.value;
   if (0 === plaintextInput.length || 0 === passphrase) {
     return;
   }
@@ -25,10 +25,14 @@ btnEncode.addEventListener('click', () => {
   preOutput.innerHTML = ciphertext;
 });
 
-/*
-      <input class="form-control" id="inputPassPhrase" />
-    <textarea class="form-control" id="inputTextarea" rows="7"></textarea>
-    <button id="btnDecode" type="button" class="btn btn-outline-primary">Decode</button>
-    <button id="btnEncode" type="button" class="btn btn-outline-secondary">Encode</button>
-      <pre class="border rounded bg-light" id="output"></pre>
-*/
+btnDecode.addEventListener('click', () => {
+  const passphrase = inputPassPhrase.value;
+  const ciphertextInput = inputTextarea.value;
+  if (0 === ciphertextInput.length || 0 === passphrase) {
+    return;
+  }
+  const decrypted = CryptoJS.AES.decrypt(ciphertextInput, passphrase);
+  const plaintextOutput = decrypted.toString(CryptoJS.enc.Utf8);
+  p({ decrypted, plaintextOutput });
+  preOutput.innerHTML = plaintextOutput;
+});
