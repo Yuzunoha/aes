@@ -2,9 +2,25 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
     <title>AES</title>
   </head>
   <body>
-    出るかな
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Pass Phrase</label>
+      <input type="email" class="form-control" id="inputPassPhrase" />
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+
+    <pre class="border rounded bg-light" id="output"></pre>
   </body>
 </html>
