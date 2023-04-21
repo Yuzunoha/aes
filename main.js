@@ -15,7 +15,14 @@ const demo = () => {
 };
 
 btnEncode.addEventListener('click', () => {
-  p('押されました');
+  const plaintextInput = inputTextarea.value;
+  const passphrase = inputTextarea.value;
+  if (0 === plaintextInput.length || 0 === passphrase) {
+    return;
+  }
+  const encrypted = CryptoJS.AES.encrypt(plaintextInput, passphrase);
+  const ciphertext = encrypted.toString();
+  preOutput.innerHTML = ciphertext;
 });
 
 /*
